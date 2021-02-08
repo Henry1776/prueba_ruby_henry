@@ -14,7 +14,10 @@ end
 def build_nasa_rover(rover)
     File.open('nasa_examen.html','w') do |file|
         rover["photos"].each do |photo|
-            file.puts "<img src='#{photo["img_src"]}'>"
+            file.puts "<p>#{photo["name"]}</p>"
+            file.puts "<h5>#{photo["earth_date"]}</h5>"
+            file.puts "<img src='#{photo["img_src"]}'width = 150>"
+            
         end
     end      
 end    

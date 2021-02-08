@@ -14,14 +14,13 @@ end
 def build_nasa_rover(rover)
     File.open('nasa_examen.html','w') do |file|
         rover["photos"].each do |photo|
-            file.puts "<p>#{photo["name"]}</p>"
             file.puts "<h5>#{photo["earth_date"]}</h5>"
             file.puts "<img src='#{photo["img_src"]}'width = 150>"
             
         end
     end      
 end    
- 
+
 nasa_array = request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000','epQ20Ei7uJzHb9HgBWMdZFOWqFYUVQiYayR9Bcl3')
 build_nasa_rover(nasa_array)
 

@@ -13,6 +13,9 @@ end
 
 def build_nasa_rover(rover)
     File.open('nasa_examen.html','w') do |file|
+        rover.each do |photo|
+            file.puts "<img src='#{rover["photos"][0]["img_src"]}'>"
+        end
     end      
 end    
 
@@ -20,30 +23,14 @@ nasa_array = request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/p
 puts build_nasa_rover(nasa_array)
 
 
-"<html>
-            <head></head>
-            <body>
-            <ul>
-            <li>"rover.each do |photo|
-                file.puts "<img src='#{photo["photos"]["img_src"]}'>" end"</li>
-            <li></li>
-                </ul>
-                </body>
-                </html>"
-
-string_html = '''<!doctype html>
-<html lang="es">
-  <head></head>
-  <body>
-    <h1>Pagina NASA</h1>
-    '''
-dato_tmp = "NASA"
-string_html += '<ul>' + dato_tmp + '</ul>'
-string_html += '''
+file.puts"<html>
+<head>
+</head>
+<body>
+<ul>
+<li></li>
+<li></li>
+</ul>
 </body>
 
-</html>
-'''
-fHTML = File.open("nasa_examen.html","w")
-fHTML.write(string_html)
-fHTML.close
+</html>"
